@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/20 14:10:47 by sfarren          ###   ########.fr       */
+/*   Created: 2024/05/28 11:34:18 by sfarren           #+#    #+#             */
+/*   Updated: 2024/05/28 13:02:27 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
+int	ft_lstsize(t_list *lst)
+{
+	int		lst_size;
+	t_list	*temp;
 
-
-int	is_valid_integer(const char *str);
-int	ft_atoi(const char *str);
-
-#endif
+	lst_size = 0;
+	temp = lst;
+	while (temp)
+	{
+		lst_size++;
+		temp = temp->next;
+	}
+	return (lst_size);
+}

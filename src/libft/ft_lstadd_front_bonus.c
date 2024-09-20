@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/20 14:10:47 by sfarren          ###   ########.fr       */
+/*   Created: 2024/05/28 11:23:03 by sfarren           #+#    #+#             */
+/*   Updated: 2024/05/28 21:32:47 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
-
-
-int	is_valid_integer(const char *str);
-int	ft_atoi(const char *str);
-
-#endif
+/**
+ * Adds the given element 'new' at the beginning of the linked list 'lst'.
+ *
+ * @param lst The address of a pointer to the first node of the linked list.
+ * @param new The node to be added at the beginning of the linked list.
+ */
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
+}

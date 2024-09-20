@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/20 14:10:47 by sfarren          ###   ########.fr       */
+/*   Created: 2024/04/12 16:46:16 by sfarren           #+#    #+#             */
+/*   Updated: 2024/06/02 14:55:08 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t	i;
 
-
-int	is_valid_integer(const char *str);
-int	ft_atoi(const char *str);
-
-#endif
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)(&s[i]));
+		if (i == 0)
+			break ;
+		i--;
+	}
+	return (0);
+}

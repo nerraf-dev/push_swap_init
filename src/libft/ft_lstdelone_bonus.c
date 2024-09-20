@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/20 14:10:47 by sfarren          ###   ########.fr       */
+/*   Created: 2024/05/28 13:17:56 by sfarren           #+#    #+#             */
+/*   Updated: 2024/06/01 19:20:05 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
-
-
-int	is_valid_integer(const char *str);
-int	ft_atoi(const char *str);
-
-#endif
+/**
+ * Deletes a single node from a linked list and frees the memory allocated to it.
+ *
+ * @param lst The node to be deleted.
+ * @param del The function used to free the memory of the node's content.
+ */
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (lst == 0 || del == 0)
+		return ;
+	del(lst->content);
+	free(lst);
+}

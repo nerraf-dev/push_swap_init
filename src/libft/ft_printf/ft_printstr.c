@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/20 14:10:47 by sfarren          ###   ########.fr       */
+/*   Created: 2024/07/11 14:42:08 by sfarren           #+#    #+#             */
+/*   Updated: 2024/07/16 18:22:02 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "ft_printf.h"
 
-# include <limits.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
+void	ft_printstr(char *s, int *count)
+{
+	int	i;
 
-
-int	is_valid_integer(const char *str);
-int	ft_atoi(const char *str);
-
-#endif
+	i = 0;
+	if (s == NULL)
+		s = "(null)";
+	while (s[i])
+	{
+		ft_printchr(s[i], count);
+		i++;
+	}
+}

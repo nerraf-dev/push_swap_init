@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 13:39:44 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/20 14:11:11 by sfarren          ###   ########.fr       */
+/*   Created: 2024/04/12 15:51:15 by sfarren           #+#    #+#             */
+/*   Updated: 2024/05/30 21:12:03 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+/**
+ * Searches for the first occurrence of the character 'c' in the string 's'.
+ *
+ * @param s The string to be searched.
+ * @param c The character to be found.
+ * @return A pointer to the first occurrence of 'c' in 's', or 0 if not found.
+ */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
-	int	num;
+	int	len;
 
-	if (argc == 1)
-		printf("No arguments provided.\n");
-	else
+	i = 0;
+	len = ft_strlen((char *)s);
+	while (i <= len)
 	{
-		printf("Arguments provided:\n");
-		i = 1;
-		while (i < argc)
-		{
-			if (is_valid_integer(argv[i]))
-			{
-				num = ft_atoi(argv[i]);
-				printf("%d\n", num);
-			}
-			else
-			{
-				printf("Invalid integer: %s\n", argv[i]);
-			}
-			i++;
-		}
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
 	}
 	return (0);
 }

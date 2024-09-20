@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/20 14:10:47 by sfarren          ###   ########.fr       */
+/*   Created: 2024/05/28 13:31:16 by sfarren           #+#    #+#             */
+/*   Updated: 2024/05/28 13:35:15 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <limits.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
-
-
-int	is_valid_integer(const char *str);
-int	ft_atoi(const char *str);
-
-#endif
+/**
+ * Applies the function `f` to each element of the linked list `lst`.
+ *
+ * @param lst The linked list to iterate over.
+ * @param f   The function to apply to each element of the linked list.
+ */
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (lst == 0 || f == 0)
+		return ;
+	while (lst != 0)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
