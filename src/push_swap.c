@@ -6,32 +6,57 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:00:45 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/20 14:06:40 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/09/21 21:25:24 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// typedef struct Node {
-// 	int value;
-// 	int count;
-// 	struct Node* next;
-// } Node;
+t_node	*create_node(int value)
+{
+	t_node	*new_node;
 
-// Node* createNode(int value) {
-// 	Node* newNode = (Node*)malloc(sizeof(Node));
-// 	newNode->value = value;
-// 	newNode->count = 0;
-// 	newNode->next = NULL;
-// 	return newNode;
-// }
+	new_node = (t_node *)malloc(sizeof(t_node));
+	new_node->value = value;
+	new_node->count = 0;
+	new_node->next = NULL;
+	return (new_node);
+}
 
-// void insert(Node** head, int value) {
-// 	Node* newNode = createNode(value);
-// 	newNode->next = *head;
-// 	*head = newNode;
-// }
+void	insert(t_node **head, int value)
+{
+	t_node	*new_node;
 
-// void countSort(int *arr, int length) {
+	new_node = create_node(value);
+	new_node->next = *head;
+	*head = new_node;
+}
 
-// }
+// t_node *
+
+void	count_sort(int *arr, int length)
+{
+	int	i;
+	int	min;
+	int	max;
+	int	range;
+	int	offset;
+
+	// Find min and max in list
+	i = 0;
+	min = INT_MAX;
+	max = INT_MIN;
+	while (i < length)
+	{
+		if (arr[i] < min)
+			min = arr[i];
+		if (arr[i] > max)
+			max = arr[i];
+		i++;
+	}
+	// Create linked list of counts
+	offset = 0 - min;
+	range = max - min + 1;
+	t_node head = *create_node(0);
+}
+
