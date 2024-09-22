@@ -6,35 +6,15 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:00:45 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/21 21:25:24 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/09/22 12:29:05 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*create_node(int value)
-{
-	t_node	*new_node;
 
-	new_node = (t_node *)malloc(sizeof(t_node));
-	new_node->value = value;
-	new_node->count = 0;
-	new_node->next = NULL;
-	return (new_node);
-}
 
-void	insert(t_node **head, int value)
-{
-	t_node	*new_node;
-
-	new_node = create_node(value);
-	new_node->next = *head;
-	*head = new_node;
-}
-
-// t_node *
-
-void	count_sort(int *arr, int length)
+void	init_sort(int *arr, int length)
 {
 	int	i;
 	int	min;
@@ -42,10 +22,13 @@ void	count_sort(int *arr, int length)
 	int	range;
 	int	offset;
 
-	// Find min and max in list
 	i = 0;
 	min = INT_MAX;
 	max = INT_MIN;
+	// get range and offset
+	range = max - min + 1;
+	offset = 0 - min;
+	// find min and max
 	while (i < length)
 	{
 		if (arr[i] < min)
@@ -54,9 +37,11 @@ void	count_sort(int *arr, int length)
 			max = arr[i];
 		i++;
 	}
-	// Create linked list of counts
-	offset = 0 - min;
-	range = max - min + 1;
-	t_node head = *create_node(0);
+	ft_printf("offset: %d  Range: %d \n", offset, range);
+
+	// Create Linked List for counts
+	// Populate counts
+	// Reconstruct the sorted array
+
 }
 

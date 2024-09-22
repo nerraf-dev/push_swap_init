@@ -6,37 +6,76 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:39:44 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/21 20:20:00 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/09/22 13:19:36 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	check_duplicates(int *arr, int size)
 {
 	int	i;
-	int	num;
-	int	count;
+	int	j;
 
-	count = 0;
-	if (argc == 1)
-		ft_printf("No arguments provided.\n");
-	else
+	i = 0;
+	while (i < size - 1)
 	{
-		ft_printf("Arguments provided:\n");
-		i = 1;
-		while (i < argc)
+		j = i + 1;
+		while (j < size)
 		{
-			if (is_valid_integer(argv[i]))
-			{
-				num = ft_atoi(argv[i]);
-				ft_printf("%d\n", num);
-				count++;
-			}
-			else
-				ft_printf("Invalid integer: %s\n", argv[i]);
-			i++;
+			if (arr[i] == arr[j])
+				return (-1);
+			j++;
 		}
+		i++;
 	}
+	return (0);
+}
+
+void	print_error_and_exit(const char *message, int *arr)
+{
+	ft_printf("%s\n", message);
+	if (arr)
+		free(arr);
+	exit(1);
+}
+
+int	*parse_arguments(int argc, char **argv)
+{
+	int	*arr;
+	int	i;
+
+	arr = (int *)malloc((argc - 1) * sizeof(int));
+	if (!arr)
+		print_error_and_exit("Memory allocation failed", NULL);
+	i = 0;
+	while (i < argc - 1)
+	{
+		if (!is_valid_integer(argv[i + 1]))
+			print_error_and_exit("Invalid integer", arr);
+		arr[i] = ft_atoi(argv[i + 1]);
+		i++;
+	}
+	return (arr);
+}
+
+int	main(int argc, char **argv)
+{
+	int	*arr;
+	int	*arr_start;
+
+	if (argc <= 1)
+		print_error_and_exit("No arguments provided", NULL);
+	arr = parse_arguments(argc, argv);
+	arr_start = arr;
+
+	if (check_duplicates(arr, argc - 1))
+		print_error_and_exit("Error: Duplicate number", arr);
+	while (*arr)
+	{
+		ft_printf("%d\n", *arr);
+		arr++;
+	}
+	free(arr_start);
 	return (0);
 }
