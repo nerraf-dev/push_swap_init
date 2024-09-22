@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/22 13:18:11 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/09/22 21:28:57 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,18 @@ int		ft_atoi(const char *str);
 t_node	*create_node(int value);
 
 /**
+ * @brief Creates a linked list with nodes ranging from 0 to the specified range.
+ *
+ * initializes a linked list where each node contains an integer value.
+ * The values start from 0 and increment by 1 up to the specified range.
+ *
+ * @param range The upper limit (exclusive) for the values in the linked list.
+ *              The linked list will contain nodes with values from 0 to range-1.
+ * @return A pointer to the head of the created linked list.
+ */
+t_node	*create_linked_list(int range);
+
+/**
  * @brief Inserts a new node with the given value into the linked list.
  *
  * @param head A double pointer to the head of the linked list.
@@ -69,13 +81,10 @@ t_node	*create_node(int value);
  */
 void	insert(t_node **head, int value);
 
-/**
- * @brief Creates a linked list with nodes containing values from 0 to range-1.
- *
- * @param range The number of nodes to be created in the linked list.
- * @return A pointer to the head of the newly created linked list.
- */
-t_node	*create_linked_list(int range);
+void	populate_linked_list(int *arr, int length, t_node *head, int offset);
+
+// TODO: This one wil have to change
+int		init_sort(int *arr, int length);
 
 
 

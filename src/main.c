@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:39:44 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/22 13:19:36 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/09/22 21:25:01 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,16 @@ int	main(int argc, char **argv)
 
 	if (check_duplicates(arr, argc - 1))
 		print_error_and_exit("Error: Duplicate number", arr);
-	while (*arr)
-	{
-		ft_printf("%d\n", *arr);
-		arr++;
-	}
+
+	// Find the sorted solution
+	init_sort(arr, argc - 1);
+
+	// while (*arr)
+	// {
+	// 	ft_printf("%d\n", *arr);
+	// 	arr++;
+	// }
+	
 	free(arr_start);
 	return (0);
 }
