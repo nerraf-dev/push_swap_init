@@ -6,7 +6,7 @@
 #    By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/20 13:36:23 by sfarren           #+#    #+#              #
-#    Updated: 2024/09/20 14:15:09 by sfarren          ###   ########.fr        #
+#    Updated: 2024/10/07 12:16:21 by sfarren          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ NAME = push_swap
 LIBFT_DIR = src/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
+# TODO: Change from wildcard to explicit list of source files
 SRCS = $(wildcard src/*.c)
 OBJS = $(SRCS:.c=.o)
 

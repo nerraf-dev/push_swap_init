@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 21:48:50 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/22 21:01:38 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/07 13:07:45 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,5 @@ void	populate_linked_list(int *arr, int length, t_node *head, int offset)
 		i++;
 	}
 }
+
+

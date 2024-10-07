@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:00:45 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/22 21:31:50 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/07 13:02:40 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	init_sort(int *arr, int length)
 	// get range and offset
 	range = max - min + 1;
 	offset = 0 - min;
-	ft_printf("min: %d max: %d", min, max);
+	ft_printf("min: %d max: %d\n", min, max);
 	ft_printf("offset: %d  Range: %d \n", offset, range);
 
 	// Create Linked List for counts
@@ -52,12 +52,12 @@ int	init_sort(int *arr, int length)
 	populate_linked_list(arr, length, head, offset);
 
 	// Print the counts
-	// current = head;
-	// while (current != NULL)
-	// {
-	// 	ft_printf("Value: %d, Count: %d\n", current->value, current->count);
-	// 	current = current->next;
-	// }
+	current = head;
+	while (current != NULL)
+	{
+		ft_printf("Value: %d, Count: %d\n", current->value, current->count);
+		current = current->next;
+	}
 	sorted_arr = (int *)malloc(length * sizeof(int));
 	if (!sorted_arr)
 	{
