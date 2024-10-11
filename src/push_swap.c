@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:20:42 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/11 13:26:53 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 13:34:10 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	print_instructions(char *instructions)
 	return (i);
 }
 
-int	push_swap(t_stack stack_a, int *arr, int length)
+int	push_swap(int *arr, int length)
 {
 	int		i;
 	int		min;
@@ -56,16 +56,14 @@ int	push_swap(t_stack stack_a, int *arr, int length)
 	char	*arr_sorted;
 	char	*instructions;
 
-	i = length;
-	while (i > 0)
-	{
-		push(&stack_a, arr[i - 1]);
-		i--;
-	}
-	print_stack(&stack_a);
-
-
-	ft_printf("Stack B: \n");
+	// i = length;
+	// while (i > 0)
+	// {
+	// 	push(&stack_a, arr[i - 1]);
+	// 	i--;
+	// }
+	// print_stack(&stack_a);
+	// ft_printf("Stack B: \n");
 
 	i = 0;
 	min = INT_MAX;
@@ -80,7 +78,12 @@ int	push_swap(t_stack stack_a, int *arr, int length)
 			max = arr[i];
 		i++;
 	}
-	range = max - min;
+	
+	// get range and offset
+	range = max - min + 1;
+	offset = 0 - min;
+	ft_printf("min: %d max: %d\n", min, max);
+	ft_printf("offset: %d  Range: %d \n", offset, range);
 	// 1 2 3 = MIN 1 MAX 3 RANGE 2
 	// Create sorted array
 

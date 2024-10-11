@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/11 13:08:25 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 13:32:42 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	reverse_rotate(t_stack *stack);
 void	print_stack(t_stack *stack);
 
 // TODO: This one wil have to change
-int		push_swap(t_stack stack_a, int *arr, int length);
+int		push_swap(int *arr, int length);
 char	*sort_two(t_stack *stack, int *arr, int min, int max);
 char	*sort_three(t_stack *stack, int *arr, int min, int max);
 #endif

@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:39:44 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/11 11:34:18 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 13:32:27 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,7 @@ void	free_stack(t_stack *stack)
 int	main(int argc, char **argv)
 {
 	int		*arr;
-	t_stack	stack_a;
-	// t_stack	stack_b;
+	// t_stack	stack_a;
 
 	stack_a.top = NULL;
 	if (argc <= 1)
@@ -80,10 +79,10 @@ int	main(int argc, char **argv)
 	arr = parse_arguments(argc, argv);
 	if (check_duplicates(arr, argc - 1))
 		print_error_and_exit("Error: Duplicate number", arr);
-	push_swap(stack_a, arr, argc - 1);
+	push_swap(arr, argc - 1);
 
-	// Free the stack nodes
-	free_stack(&stack_a);
+	// // Free the stack nodes
+	// free_stack(&stack_a);
 	// Free the array after use
 	free(arr);
 	return (0);
