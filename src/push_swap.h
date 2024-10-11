@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/22 21:28:57 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 12:04:08 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,20 @@ t_node	*create_linked_list(int range);
  */
 void	insert(t_node **head, int value);
 
-void	populate_linked_list(int *arr, int length, t_node *head, int offset);
+// void	populate_linked_list(int *arr, int length, t_node *head, int offset);
+
+// PUSH SWAP COMMANDS
+void	push(t_stack *stack, int value);
+int		pop(t_stack *stack);
+void	swap(t_stack *stack);
+void	rotate(t_stack *stack);
+void	reverse_rotate(t_stack *stack);
+
+// **PS
+void	print_stack(t_stack *stack);
 
 // TODO: This one wil have to change
-int		init_sort(int *arr, int length);
-
-
-
+int		push_swap(t_stack stack_a, int *arr, int length);
+char	*sort_two(t_stack *stack, int *arr, int min, int max);
+char	*sort_three(t_stack *stack, int *arr, int min, int max);
 #endif
