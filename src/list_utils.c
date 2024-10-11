@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 21:48:50 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/11 13:11:56 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 13:56:45 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_node	*create_linked_list(int range)
 	return (head);
 }
 
-void	push(t_stack *stack, int value)
+void	push(t_stack *stack, int value, int rank)
 {
 	t_node	*new_node;
 
@@ -59,6 +59,7 @@ void	push(t_stack *stack, int value)
 	if (!new_node)
 		return ;
 	new_node->value = value;
+	new_node->rank = rank;
 	new_node->next = stack->top;
 	stack->top = new_node;
 }

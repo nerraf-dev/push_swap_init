@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:40:20 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/11 13:05:01 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 19:36:00 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,23 @@ char	*sort_three(t_stack *stack, int *arr, int min, int max)
 {
 	char	*instructions;
 
-	if (arr[1] == min)
+	if (arr[0] == min && arr[1] == max)
 	{
-		if (arr[0] > arr[1])
-			rotate(stack);
-		else
-			swap(stack);
+		swap(stack);
+		rotate(stack);
+		return (instructions = "sa,ra\n");
 	}
-	if (arr[2] == min)
+	if (arr[0] == max && arr[1] == min)
 	{
-		if (arr[0] > arr[2])
-			reverse_rotate(stack);
-		else
-		{
-			swap(stack);
-			rotate(stack);
-		}
+		rotate(stack);
+		return (instructions = "ra\n");
 	}
-	if (arr[0] == min)
+	if (arr[0] == max && arr[2] == min)
 	{
-		if (arr[1] == max)
-			reverse_rotate(stack);
-		else
-			swap(stack);
+		swap(stack);
+		reverse_rotate(stack);
+		return (instructions = "sa,rra\n");
 	}
+
 	return (instructions = "");
 }

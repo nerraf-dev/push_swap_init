@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/11 13:32:42 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 13:57:01 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	insert(t_node **head, int value);
 // void	populate_linked_list(int *arr, int length, t_node *head, int offset);
 
 // PUSH SWAP COMMANDS
-void	push(t_stack *stack, int value);
+void	push(t_stack *stack, int value, int rank);
 int		pop(t_stack *stack);
 void	swap(t_stack *stack);
 void	rotate(t_stack *stack);

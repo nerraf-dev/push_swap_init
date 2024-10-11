@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:39:44 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/11 13:32:27 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 13:49:31 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,7 @@ void	free_stack(t_stack *stack)
 int	main(int argc, char **argv)
 {
 	int		*arr;
-	// t_stack	stack_a;
 
-	stack_a.top = NULL;
 	if (argc <= 1)
 		print_error_and_exit("No arguments provided", NULL);
 	arr = parse_arguments(argc, argv);

@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:20:42 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/11 13:34:10 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 20:46:28 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_stack(t_stack *stack)
 	ft_printf("Stack A: ");
 	while (node)
 	{
-		ft_printf("%d ", node->value);
+		ft_printf("value: %d rank: %d ", node->value, node->rank);
 		node = node->next;
 	}
 	ft_printf("\n");
@@ -47,23 +47,15 @@ int	print_instructions(char *instructions)
 
 int	push_swap(int *arr, int length)
 {
+	t_stack	stack_a;
+	t_stack	stack_b;
 	int		i;
 	int		min;
 	int		max;
 	int		range;
 	int		offset;
 	int		moves;
-	char	*arr_sorted;
 	char	*instructions;
-
-	// i = length;
-	// while (i > 0)
-	// {
-	// 	push(&stack_a, arr[i - 1]);
-	// 	i--;
-	// }
-	// print_stack(&stack_a);
-	// ft_printf("Stack B: \n");
 
 	i = 0;
 	min = INT_MAX;
@@ -78,18 +70,25 @@ int	push_swap(int *arr, int length)
 			max = arr[i];
 		i++;
 	}
-	
-	// get range and offset
 	range = max - min + 1;
 	offset = 0 - min;
-	ft_printf("min: %d max: %d\n", min, max);
-	ft_printf("offset: %d  Range: %d \n", offset, range);
+	stack_a.top = NULL;
+	stack_b.top = NULL;
+	// Populate stack in reverse array order (index 0 should be top of the stack)
+	i = length - 1;
+	while (i >= 0)
+	{
+		push(&stack_a, arr[i], arr[i] + offset);
+		i--;
+	}
+	ft_printf("Min: %d Max: %d Range: %d Offset: %d\n", min, max, range, offset);
+	print_stack(&stack_a);
+
 	// 1 2 3 = MIN 1 MAX 3 RANGE 2
 	// Create sorted array
 
 	// Rank the array
 	// copy ranks to stack
-
 
 	//sorting 2 & 3 digits
 	if (length == 2)
