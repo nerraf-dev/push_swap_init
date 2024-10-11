@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:20:42 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/11 12:14:51 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 13:26:53 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,12 @@ int	push_swap(t_stack stack_a, int *arr, int length)
 	int		i;
 	int		min;
 	int		max;
+	int		range;
+	int		offset;
 	int		moves;
+	char	*arr_sorted;
 	char	*instructions;
 
-	// Push the parsed integers into stack a in reverse order
 	i = length;
 	while (i > 0)
 	{
@@ -61,6 +63,8 @@ int	push_swap(t_stack stack_a, int *arr, int length)
 		i--;
 	}
 	print_stack(&stack_a);
+
+
 	ft_printf("Stack B: \n");
 
 	i = 0;
@@ -76,6 +80,14 @@ int	push_swap(t_stack stack_a, int *arr, int length)
 			max = arr[i];
 		i++;
 	}
+	range = max - min;
+	// 1 2 3 = MIN 1 MAX 3 RANGE 2
+	// Create sorted array
+
+	// Rank the array
+	// copy ranks to stack
+
+
 	//sorting 2 & 3 digits
 	if (length == 2)
 	{

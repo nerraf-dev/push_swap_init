@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 21:48:50 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/08 13:35:48 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 13:11:56 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_node	*create_node(int value)
 
 	new_node = (t_node *)malloc(sizeof(t_node));
 	new_node->value = value;
-	new_node->count = 0;
+	new_node->rank = 0;
 	new_node->next = NULL;
 	return (new_node);
 }
@@ -38,7 +38,6 @@ t_node	*create_linked_list(int range)
 	t_node	*head;
 	t_node	*current;
 	int		i;
-	// int		offset;
 
 	head = create_node(0);
 	current = head;
@@ -50,6 +49,32 @@ t_node	*create_linked_list(int range)
 		i++;
 	}
 	return (head);
+}
+
+void	push(t_stack *stack, int value)
+{
+	t_node	*new_node;
+
+	new_node = (t_node *)malloc(sizeof(t_node));
+	if (!new_node)
+		return ;
+	new_node->value = value;
+	new_node->next = stack->top;
+	stack->top = new_node;
+}
+
+int	pop(t_stack *stack)
+{
+	t_node	*temp;
+	int		value;
+
+	if (!stack->top)
+		return (-1);
+	temp = stack->top;
+	value = temp->value;
+	stack->top = stack->top->next;
+	free(temp);
+	return (value);
 }
 
 // Function to populate the linked list with counts

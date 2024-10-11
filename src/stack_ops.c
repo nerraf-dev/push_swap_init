@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:09:55 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/08 20:05:54 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/11 13:11:42 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,31 +32,7 @@
 	// The last element becomes the first one.
 // rrr : rra and rrb at the same time.
 
-void	push(t_stack *stack, int value)
-{
-	t_node	*new_node;
 
-	new_node = (t_node *)malloc(sizeof(t_node));
-	if (!new_node)
-		return ;
-	new_node->value = value;
-	new_node->next = stack->top;
-	stack->top = new_node;
-}
-
-int	pop(t_stack *stack)
-{
-	t_node	*temp;
-	int		value;
-
-	if (!stack->top)
-		return (-1);
-	temp = stack->top;
-	value = temp->value;
-	stack->top = stack->top->next;
-	free(temp);
-	return (value);
-}
 
 void	swap(t_stack *stack)
 {
