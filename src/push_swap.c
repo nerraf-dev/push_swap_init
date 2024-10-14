@@ -6,20 +6,59 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:00:45 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/14 11:52:26 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/14 14:42:14 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "./ranking/c_sort.h"
 
+t_node	*create_node(int value, int rank)
+{
+	t_node	*new_node;
+
+	new_node = (t_node *)malloc(sizeof(t_node));
+	if (!new_node)
+	{
+		ft_printf("Memory Allocation Failed");
+		return (NULL);
+	}
+	new_node->value = value;
+	new_node->rank = rank;
+	new_node->next = NULL;
+	return (new_node);
+}
+
+void	push(t_stack *stack, int value, int rank)
+{
+	t_node	*new_node;
+
+	new_node = create_node(value, rank);
+	new_node->next = stack->top;
+	stack->top = new_node;
+}
+
+// Function to print the stack
+void print_stack(t_stack *stack)
+{
+	t_node *current;
+
+	current = stack->top;
+	while (current != NULL)
+	{
+		ft_printf("Value: %d, Rank: %d\n", current->value, current->rank);
+		current = current->next;
+	}
+}
 
 int	push_swap(int *arr, int length)
 {
 	int		*ranks;
 	int		i;
-	t_node	*stack_a;
-	// t_node	*current;
+	t_stack	*stack_a;
 	// t_node	*stack_b;
+	t_node	*current;
+	t_node	*temp;
 
 	ranks = get_ranks(arr, length);
 	if (!ranks)
@@ -32,41 +71,29 @@ int	push_swap(int *arr, int length)
 		ft_printf("arr: %d - rank[%d] = %d\n",arr[i], i, ranks[i]);
 		i++;
 	}
-
-	// Create stacks a and b
-	stack_a = create_linked_list(length);
-	populate_count_list(arr, length, stack_a, 0);
-	// i = 0;
-	// while (stack_a != NULL)
-	// {
-	// 	stack_a->value = arr[i];
-	// 	stack_a->count = ranks[i];
-	// 	stack_a = stack_a->next;
-	// 	i++;
-	// }
-
-
-
-	// Iterate over arr in reverse order to populate stack a
-	//	- Create a new node with the value of arr[i] This should put the first value of the array at the top of stack_a
-	//	- Set the next pointer of the new node to the current top of stack_a
-	//	- Set the top of stack_a to the new node
-	//	- Increment i
-	//	- Repeat until i is equal to length
-
-
-
-	// Print stack a
-
-	// Initialize stack a with the input array & rank
-	// Initialize stack b as an empty stack
-
-
-
-
-	//ranks is in original order bu only ints 0 to n
-
-
+	 // Create stack a
+	stack_a = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack_a) {
+		free(ranks);
+		return (-1);
+	}
+	stack_a->top = NULL;
+	i = length - 1;
+	while (i > -1)
+	{
+		push(stack_a, arr[i], ranks[i]);
+		i--;
+	}
+	print_stack(stack_a);
+	// Free the stack
+	current = stack_a->top;
+	while (current != NULL)
+	{
+		temp = current;
+		current = current->next;
+		free(temp);
+	}
+	free(stack_a);
 	free(ranks);
 	return (0);
 }

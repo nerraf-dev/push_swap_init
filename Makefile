@@ -6,7 +6,7 @@
 #    By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/20 13:36:23 by sfarren           #+#    #+#              #
-#    Updated: 2024/10/14 11:15:34 by sfarren          ###   ########.fr        #
+#    Updated: 2024/10/14 15:02:22 by sfarren          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,18 @@ ifeq ($(UNAME_S), Darwin) # macOS
 else
 	CC = clang # Default to clang for other systems, including 42's
 endif
-CFLAGS = -Wall -Wextra -Werror
+# TODO: remove -g flag
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 NAME = push_swap
 LIBFT_DIR = src/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 COUNT_SORT = src/ranking
-LIST_UTILS = src/stack
+
 
 # TODO: Change from wildcard to explicit list of source files
-SRCS = $(wildcard src/*.c) $(wildcard $(COUNT_SORT)/*.c) $(wildcard $(LIST_UTILS)/*.c)
+SRCS = $(wildcard src/*.c) $(wildcard $(COUNT_SORT)/*.c)
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)

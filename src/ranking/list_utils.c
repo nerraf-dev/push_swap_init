@@ -6,13 +6,13 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 21:48:50 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/14 12:02:01 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/14 14:15:47 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_utils.h"
+#include "c_sort.h"
 
-t_count_node	*create_node(int value)
+t_count_node	*create_count_node(int value)
 {
 	t_count_node	*new_node;
 
@@ -30,12 +30,12 @@ t_count_node	*create_linked_list(int length)
 	t_count_node	*current;
 	int		i;
 
-	head = create_node(0);
+	head = create_count_node(0);
 	current = head;
 	i = 1;
 	while (i < length)
 	{
-		current->next = create_node(i);
+		current->next = create_count_node(i);
 		current = current->next;
 		i++;
 	}

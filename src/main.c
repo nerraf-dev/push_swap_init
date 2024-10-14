@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:39:44 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/13 15:50:00 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/14 14:40:37 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,15 @@ static int	*parse_arguments(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	int	*arr;
-	int	*arr_start;
 
 	if (argc <= 1)
 		print_error_and_exit("No arguments provided", NULL);
 	arr = parse_arguments(argc, argv);
-	arr_start = arr;
-
 	if (check_duplicates(arr, argc - 1))
 		print_error_and_exit("Error: Duplicate number", arr);
-
 	// Find the sorted solution
 	push_swap(arr, argc - 1);
 
-	free(arr_start);
+	free(arr);
 	return (0);
 }

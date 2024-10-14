@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/14 12:03:08 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/14 13:45:41 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,18 @@
 # include <stdlib.h>
 // # include <stdbool.h>
 # include "./libft/libft.h"
-# include "./ranking/c_sort.h"
-# include "./stack/list_utils.h"
+// # include "./ranking/c_sort.h"
 
-typedef struct s_stack_node
+typedef struct s_node
 {
 	int				value;
 	int				rank;
-	struct s_stack_node	*next;
-}				t_stack_node;
+	struct s_node	*next;
+}				t_node;
 
 typedef struct s_stack
 {
-	t_stack_node	*top;
+	t_node	*top;
 }	t_stack;
 
 /**

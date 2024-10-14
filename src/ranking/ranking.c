@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 13:18:12 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/13 16:33:30 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/14 14:43:59 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ t_count_props	get_props(int *arr, int length)
 	return (props);
 }
 
-void	run_count_sort(int *sorted_arr, t_node *count, int offset)
+void	run_count_sort(int *sorted_arr, t_count_node *count, int offset)
 {
 	int		i;
-	t_node	*current;
+	t_count_node	*current;
 
 	i = 0;
 	current = count;
@@ -67,7 +67,7 @@ void	run_count_sort(int *sorted_arr, t_node *count, int offset)
 int	*sort_numbers(int *arr, int length)
 {
 	int				*sorted_arr;
-	t_node			*count;
+	t_count_node	*count;
 	t_count_props	props;
 
 	props = get_props(arr, length);
@@ -86,22 +86,22 @@ int	*sort_numbers(int *arr, int length)
 	return (sorted_arr);
 }
 
-void	free_arrays(int num_of_arrays, ...)
-{
-	va_list	arrays;
-	int		*arr;
-	int		i;
+// void	free_arrays(int num_of_arrays, ...)
+// {
+// 	va_list	arrays;
+// 	int		*arr;
+// 	int		i;
 
-	i = 0;
-	while (i < num_of_arrays)
-	{
-		va_start(arrays, num_of_arrays);
-		arr = va_arg(arrays, int *);
-		free(arr);
-		va_end(arrays);
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (i < num_of_arrays)
+// 	{
+// 		va_start(arrays, num_of_arrays);
+// 		arr = va_arg(arrays, int *);
+// 		free(arr);
+// 		va_end(arrays);
+// 		i++;
+// 	}
+// }
 
 int	*get_ranks(int *arr, int length)
 {
