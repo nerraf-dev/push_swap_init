@@ -6,13 +6,13 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:39:44 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/22 21:25:01 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/13 15:50:00 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_duplicates(int *arr, int size)
+static int	check_duplicates(int *arr, int size)
 {
 	int	i;
 	int	j;
@@ -32,7 +32,7 @@ int	check_duplicates(int *arr, int size)
 	return (0);
 }
 
-void	print_error_and_exit(const char *message, int *arr)
+static void	print_error_and_exit(const char *message, int *arr)
 {
 	ft_printf("%s\n", message);
 	if (arr)
@@ -40,7 +40,7 @@ void	print_error_and_exit(const char *message, int *arr)
 	exit(1);
 }
 
-int	*parse_arguments(int argc, char **argv)
+static int	*parse_arguments(int argc, char **argv)
 {
 	int	*arr;
 	int	i;
@@ -73,14 +73,8 @@ int	main(int argc, char **argv)
 		print_error_and_exit("Error: Duplicate number", arr);
 
 	// Find the sorted solution
-	init_sort(arr, argc - 1);
+	push_swap(arr, argc - 1);
 
-	// while (*arr)
-	// {
-	// 	ft_printf("%d\n", *arr);
-	// 	arr++;
-	// }
-	
 	free(arr_start);
 	return (0);
 }

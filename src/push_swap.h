@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/22 21:28:57 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/14 12:03:08 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,19 @@
 # include <stdlib.h>
 // # include <stdbool.h>
 # include "./libft/libft.h"
+# include "./ranking/c_sort.h"
+# include "./stack/list_utils.h"
 
-typedef struct s_node
+typedef struct s_stack_node
 {
 	int				value;
-	int				count;
-	struct s_node	*next;
-}				t_node;
+	int				rank;
+	struct s_stack_node	*next;
+}				t_stack_node;
 
 typedef struct s_stack
 {
-	t_node	*top;
+	t_stack_node	*top;
 }	t_stack;
 
 /**
@@ -52,40 +54,17 @@ int		is_valid_integer(const char *str);
  */
 int		ft_atoi(const char *str);
 
-// *** LIST_UTILS ***
-/**
- * @brief Creates a new node with the given value.
- *
- * @param value The value to be stored in the new node.
- * @return A pointer to the newly created node.
- */
-t_node	*create_node(int value);
+// Stack Operations
+// void	swap(t_stack *stack);
+// void	rotate(t_stack *stack);
+// void	reverse_rotate(t_stack *stack);
+// void	ss(t_stack *a, t_stack *b);
+// void	rr(t_stack *a, t_stack *b);
+// void	rrr(t_stack *a, t_stack *b);
 
-/**
- * @brief Creates a linked list with nodes ranging from 0 to the specified range.
- *
- * initializes a linked list where each node contains an integer value.
- * The values start from 0 and increment by 1 up to the specified range.
- *
- * @param range The upper limit (exclusive) for the values in the linked list.
- *              The linked list will contain nodes with values from 0 to range-1.
- * @return A pointer to the head of the created linked list.
- */
-t_node	*create_linked_list(int range);
 
-/**
- * @brief Inserts a new node with the given value into the linked list.
- *
- * @param head A double pointer to the head of the linked list.
- * @param value The value to be inserted into the new node.
- */
-void	insert(t_node **head, int value);
-
-void	populate_linked_list(int *arr, int length, t_node *head, int offset);
 
 // TODO: This one wil have to change
-int		init_sort(int *arr, int length);
-
-
+int	push_swap(int *arr, int length);
 
 #endif
