@@ -1,1 +1,4 @@
 .course_content/
+
+*.o
+*.a

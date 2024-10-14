@@ -6,16 +6,17 @@
 #    By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/20 13:36:23 by sfarren           #+#    #+#              #
-#    Updated: 2024/10/14 15:02:22 by sfarren          ###   ########.fr        #
+#    Updated: 2024/10/14 19:41:21 by sfarren          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S), Darwin) # macOS
-	CC = gcc
-else
-	CC = clang # Default to clang for other systems, including 42's
-endif
+# ifeq ($(UNAME_S), Darwin) # macOS
+# 	CC = gcc
+# else
+# 	CC = clang # Default to clang for other systems, including 42's
+# endif
+CC = clang
 # TODO: remove -g flag
 CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
