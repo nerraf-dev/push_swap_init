@@ -6,13 +6,13 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:39:44 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/11 13:49:31 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/15 10:39:45 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_duplicates(int *arr, int size)
+static int	check_duplicates(int *arr, int size)
 {
 	int	i;
 	int	j;
@@ -32,7 +32,7 @@ int	check_duplicates(int *arr, int size)
 	return (0);
 }
 
-void	print_error_and_exit(const char *message, int *arr)
+static void	print_error_and_exit(const char *message, int *arr)
 {
 	ft_printf("%s\n", message);
 	if (arr)
@@ -40,7 +40,7 @@ void	print_error_and_exit(const char *message, int *arr)
 	exit(1);
 }
 
-int	*parse_arguments(int argc, char **argv)
+static int	*parse_arguments(int argc, char **argv)
 {
 	int	*arr;
 	int	i;
@@ -70,18 +70,16 @@ void	free_stack(t_stack *stack)
 
 int	main(int argc, char **argv)
 {
-	int		*arr;
+	int	*arr;
 
 	if (argc <= 1)
 		print_error_and_exit("No arguments provided", NULL);
 	arr = parse_arguments(argc, argv);
 	if (check_duplicates(arr, argc - 1))
 		print_error_and_exit("Error: Duplicate number", arr);
+	// Find the sorted solution
 	push_swap(arr, argc - 1);
 
-	// // Free the stack nodes
-	// free_stack(&stack_a);
-	// Free the array after use
 	free(arr);
 	return (0);
 }
