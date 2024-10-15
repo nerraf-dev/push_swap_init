@@ -1,4 +1,4 @@
 .course_content/
-
+.DS_Store
 *.o
 *.a
