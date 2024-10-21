@@ -6,11 +6,11 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 20:11:25 by sfarren           #+#    #+#             */
-/*   Updated: 2024/09/22 13:17:45 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/20 15:04:39 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 int	is_valid_integer(const char *str)
 {

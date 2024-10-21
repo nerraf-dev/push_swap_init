@@ -6,11 +6,11 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:09:55 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/14 13:44:26 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/20 15:04:51 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 // sa (swap a): Swap the first 2 elements at the top of stack a.
 	// Do nothing if there is only one or no elements.
@@ -31,8 +31,6 @@
 // rrb (reverse rotate b): Shift down all elements of stack b by 1.
 	// The last element becomes the first one.
 // rrr : rra and rrb at the same time.
-
-
 
 void	swap(t_stack *stack)
 {

@@ -6,11 +6,11 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:39:44 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/14 14:40:37 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/20 15:04:39 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 static int	check_duplicates(int *arr, int size)
 {

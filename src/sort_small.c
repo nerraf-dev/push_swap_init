@@ -6,11 +6,11 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:40:20 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/11 19:36:00 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/20 15:04:39 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 // 	if input is 0 1 2, then return
 
@@ -30,6 +30,9 @@ char	*sort_three(t_stack *stack, int *arr, int min, int max)
 {
 	char	*instructions;
 
+
+	if (arr[0] == max)
+		reverse_rotate(stack);
 	if (arr[0] == min && arr[1] == max)
 	{
 		swap(stack);
