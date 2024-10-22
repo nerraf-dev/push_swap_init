@@ -6,7 +6,7 @@
 /*   By: sfarren <sfarren@student.42malaga.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 13:41:39 by sfarren           #+#    #+#             */
-/*   Updated: 2024/10/20 14:58:37 by sfarren          ###   ########.fr       */
+/*   Updated: 2024/10/22 11:58:07 by sfarren          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <limits.h>
 # include <stdlib.h>
 // # include <stdbool.h>
-# include "./libft/libft.h"
+# include "../src/libft/libft.h"
 // # include "./ranking/c_sort.h"
 
 typedef struct s_node
